@@ -9,27 +9,28 @@ source:
   sha256: 190b39ceaf1d6b59999811259e61beb1b26aaa482fb8c95538294d551461c986
 
 build:
-    noarch: python
-    number: 1001
-    script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  noarch: python
+  number: 1001
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
-    build:
-        - python
-    run:
-        - python
+  build:
+    - python
+    - pip
+  run:
+    - python
 
 test:
   imports:
-      - namedlist
+    - namedlist
 
 about:
-    home: https://bitbucket.org/ericvsmith/namedlist
-    license: Apache-2.0
-    license_file: LICENSE.txt
-    summary: 'Similar to namedtuple, but instances are mutable.'
+  home: https://bitbucket.org/ericvsmith/namedlist
+  license: Apache-2.0
+  license_file: LICENSE.txt
+  summary: 'Similar to namedtuple, but instances are mutable.'
 
 extra:
-    recipe-maintainers:
-        - DanCodigaMWRA
-        - ocefpaf
+  recipe-maintainers:
+    - DanCodigaMWRA
+    - ocefpaf
