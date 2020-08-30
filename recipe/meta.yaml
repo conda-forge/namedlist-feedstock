@@ -9,9 +9,9 @@ source:
   sha256: 34f89fc992592c80b39a709e136edcf41ea17f24ba31eaf84a314a02c8b9bcef
 
 build:
-  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -23,6 +23,10 @@ requirements:
 test:
   imports:
     - namedlist
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://bitbucket.org/ericvsmith/namedlist
