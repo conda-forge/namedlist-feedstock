@@ -1,4 +1,4 @@
-{% set version = "1.7" %}
+{% set version = "1.8" %}
 
 package:
   name: namedlist
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/namedlist/namedlist-{{ version }}.tar.gz
-  sha256: 190b39ceaf1d6b59999811259e61beb1b26aaa482fb8c95538294d551461c986
+  sha256: 34f89fc992592c80b39a709e136edcf41ea17f24ba31eaf84a314a02c8b9bcef
 
 build:
+  number: 0
   noarch: python
-  number: 1001
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -23,12 +23,16 @@ requirements:
 test:
   imports:
     - namedlist
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://bitbucket.org/ericvsmith/namedlist
   license: Apache-2.0
   license_file: LICENSE.txt
-  summary: 'Similar to namedtuple, but instances are mutable.'
+  summary: Similar to namedtuple, but instances are mutable.
 
 extra:
   recipe-maintainers:
